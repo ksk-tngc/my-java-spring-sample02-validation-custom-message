@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- BootStrap -->
+  <link rel="stylesheet" th:href="@{webjars/bootstrap/css/bootstrap.min.css}">
+  <title th:text="#{window.title.index}"></title>
+</head>
+
+<body class="bg-light">
+  <!-- コンテナ -->
+  <div class="container mt-4">
+    <!-- 行 -->
+    <div class="row justify-content-center">
+      <!-- 列 -->
+      <div class="col-md-8">
+        <!-- 請求書（タイトル） -->
+        <h2 class="border-bottom mb-4" th:text="#{invoice}"></h2>
+        <!-- フォーム -->
+        <form th:action="@{/}" method="post" novalidate th:object="${invoice}">
+          <!-- お客様名 -->
+          <div class="form-group mb-3">
+            <label for="name" th:text="#{name}"></label>
+            <input type="text" class="form-control" th:field="*{name}" th:errorclass="is-invalid">
+            <small class="invalid-feedback" th:errors="*{name}"></small>
+          </div>
+          <!-- 住所 -->
+          <div class="form-group mb-3">
+            <label for="address" th:text="#{address}"></label>
+            <input type="text" class="form-control" th:field="*{address}" th:errorclass="is-invalid">
+            <small class="invalid-feedback" th:errors="*{address}"></small>
+          </div>
+          <!-- 電話番号 -->
+          <div class="form-group mb-3">
+            <label for="phoneNumber" th:text="#{phoneNumber}"></label>
+            <input type="tel" class="form-control" th:field="*{phoneNumber}" th:errorclass="is-invalid">
+            <small class="invalid-feedback" th:errors="*{phoneNumber}"></small>
+          </div>
+          <!-- 金額 (円) -->
+          <div class="form-group mb-3">
+            <label for="price" th:text="#{price}"></label>
+            <input type="text" class="form-control" th:field="*{price}" th:errorclass="is-invalid">
+            <small class="invalid-feedback" th:errors="*{price}"></small>
+          </div>
+          <!-- 支払期日 -->
+          <div class="form-group mb-3">
+            <label for="paymentDeadline" th:text="#{paymentDeadline}"></label>
+            <input type="date" class="form-control" th:field="*{paymentDeadline}" th:errorclass="is-invalid">
+            <small class="invalid-feedback" th:errors="*{paymentDeadline}"></small>
+          </div>
+          <!-- 登録ボタン -->
+          <button type="submit" class="btn btn-primary btn-lg w-100 mt-3" th:text="#{register}"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- BootStrap -->
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</html>
