@@ -5,7 +5,7 @@
 * バリデーション実装
 * バリデーションメッセージのカスタマイズ
 * メッセージの国際化
-* WebJars で BootStrap 導入
+* WebJars で Bootstrap 導入
 
 ## 画面
 
